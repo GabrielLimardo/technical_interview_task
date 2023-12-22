@@ -20,20 +20,19 @@ class ItemController extends Controller
         }
 
         if ($request->has('id')) {
-            $this->applyFilter($query, 'id', $request->input('id_filter'), $request->input('id'));
+            $this->applyFilter($query, 'id', $request->input('id_filter'), $request->input('id'),$request->input('operator'));
         }
 
         if ($request->has('name')) {
-            $this->applyFilter($query, 'name', $request->input('name_filter'), $request->input('name'));
+            $this->applyFilter($query, 'name', $request->input('name_filter'), $request->input('name'),$request->input('operator'));
         }
 
         if ($request->has('code')) {
-            $this->applyFilter($query, 'code', $request->input('code_filter'), $request->input('code'));
+            $this->applyFilter($query, 'code', $request->input('code_filter'), $request->input('code'),$request->input('operator'));
         }
 
-        // Filtrado por EAN
         if ($request->has('ean')) {
-            $this->applyFilter($query, 'ean', $request->input('ean_filter'), $request->input('ean'));
+            $this->applyFilter($query, 'ean', $request->input('ean_filter'), $request->input('ean'),$request->input('operator'));
         }
 
         $orderBy = $request->input('orderBy', 'desc');
@@ -48,6 +47,7 @@ class ItemController extends Controller
        $items = $query->paginate($perPage);
 
         $items = $query->get();
+        dd($query->toSql());
 
         return view('items.index', compact('items'));
     }
@@ -60,6 +60,7 @@ class ItemController extends Controller
                     $query->where($column, 'LIKE', '%' . $value . '%');
                 } else {
                     $query->orWhere($column, 'LIKE', '%' . $value . '%');
+                    // dd($query->toSql());
                 }
                 break;
             case 'does_not_contain':
