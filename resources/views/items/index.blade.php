@@ -61,9 +61,14 @@
         }
 
         .table th, .table td {
-            padding: 10px;
+            padding: 20px;
+            margin: 10px;
             text-align: center;
             border: 1px solid #ccc;
+        }
+
+        td {
+            padding: 10px;
         }
 
         .table th {

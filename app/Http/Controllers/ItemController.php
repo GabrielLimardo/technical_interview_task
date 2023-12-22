@@ -52,47 +52,30 @@ class ItemController extends Controller
         return view('items.index', compact('items'));
     }
 
-    private function applyFilter($query, $column, $filterType, $value, $operator = 'AND')
+    private function applyFilter($query, $column, $filterType, $value, $logicalOperator = 'AND')
     {
+        $method = ($logicalOperator == 'AND') ? 'where' : 'orWhere';
+
         switch ($filterType) {
             case 'contains':
-                if ($operator == 'AND') {
-                    $query->where($column, 'LIKE', '%' . $value . '%');
-                } else {
-                    $query->orWhere($column, 'LIKE', '%' . $value . '%');
-                    // dd($query->toSql());
-                }
-                break;
+            $query->{$method}($column, 'LIKE', '%' . $value . '%');
+            break;
             case 'does_not_contain':
-                if ($operator == 'AND') {
-                    $query->where($column, 'NOT LIKE', '%' . $value . '%');
-                } else {
-                    $query->orWhere($column, 'NOT LIKE', '%' . $value . '%');
-                }
-                break;
+            $query->{$method}($column, 'NOT LIKE', '%' . $value . '%');
+            break;
             case 'is':
-                if ($operator == 'AND') {
-                    $query->where($column, $value);
-                } else {
-                    $query->orWhere($column, $value);
-                }
-                break;
+            $query->{$method}($column, $value);
+            break;
             case 'is_not':
-                if ($operator == 'AND') {
-                    $query->where($column, '!=', $value);
-                } else {
-                    $query->orWhere($column, '!=', $value);
-                }
-                break;
+            $query->{$method}($column, '!=', $value);
+            break;
             case 'updated_at':
-                if ($operator == 'AND') {
-                    $query->whereDate('updated_at', $value);
-                } else {
-                    $query->orWhereDate('updated_at', $value);
-                }
-                break;
+            $query->{$method . 'Date'}('updated_at', $value);
+            // Agregar declaración break aquí
+            break;
             default:
-                break;
+            break;
         }
     }
+
 }
