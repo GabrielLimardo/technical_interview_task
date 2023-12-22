@@ -47,7 +47,7 @@ class ItemController extends Controller
        $items = $query->paginate($perPage);
 
         $items = $query->get();
-        dd($query->toSql());
+        // dd($query->toSql());
 
         return view('items.index', compact('items'));
     }

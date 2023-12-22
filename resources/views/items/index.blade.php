@@ -2,11 +2,85 @@
 
 @section('content')
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Product List</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f2f2f2;
+        }
+
+        .filter {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .filter button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .perPage {
+            margin-right: 10px;
+        }
+
+        .orderBy, .operator, .selectFilter {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .selectFilter label, .orderBy label {
+            margin-right: 10px;
+        }
+
+        .selectFilter select {
+            width: 150px;
+        }
+
+        .table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table th, .table td {
+            width: 25%;
+        }
+
+        .photo {
+            width: 100px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <h1>Product List</h1>
