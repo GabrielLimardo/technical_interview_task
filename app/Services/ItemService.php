@@ -12,11 +12,10 @@ class ItemService
         $filters = $request->all();
         $connection = $request->get('operator');
         $query = Item::query();
-
         if (isset($filters['fields'])) {
             foreach ($filters['fields'] as $key => $value) {
                 if (isset($value) && isset($filters['filterValues'][$key])) {
-                    $this->applyFilter($query, $value, $filters['filterTypes'][$key], $filters['filterValues'][$key], $connection);
+                        $this->applyFilter($query, $value, $filters['filterTypes'][$key], $filters['filterValues'][$key], $connection);
                 }
             }
         }
@@ -26,6 +25,10 @@ class ItemService
 
         if ($request->has('clearFilters')) {
             return Item::paginate(20);
+        }
+
+        if ($request->has('filterPrice')) {
+            $this->applyPriceRangeFilter($query, $request->get('filterPrice')['price_range']);
         }
 
         $perPage = $request->input('perPage', 20);

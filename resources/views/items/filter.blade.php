@@ -48,11 +48,26 @@
             <button onclick="addFilterRow()">+</button>
 
             <br>
+
+            <div class="price-range-slider">
+                <label for="amount">Rango de Precios:</label>
+                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                <br>
+                <input type="range" id="min-slider" min="0" max="999" value="0">
+                <br>
+                <input type="range" id="max-slider" min="0" max="999" value="999">
+                <input type="hidden" name="filterPrice[price_range][min]" id="min_price">
+                <input type="hidden" name="filterPrice[price_range][max]" id="max_price">
+            </div>
+
+
             <br>
 
             <button type="submit">Filter</button>
         </form>
 </div>
+
+
 
 
 @section('js')
@@ -101,6 +116,37 @@
             const rowToRemove = buttonElement.parentElement;
             rowToRemove.remove();
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const minSlider = document.getElementById('min-slider');
+            const maxSlider = document.getElementById('max-slider');
+            const minPrice = document.getElementById('min_price');
+            const maxPrice = document.getElementById('max_price');
+            const amount = document.getElementById('amount');
+
+            // Configuración inicial
+            updateValues();
+
+            minSlider.addEventListener('input', updateValues);
+            maxSlider.addEventListener('input', updateValues);
+
+            function updateValues() {
+                const minVal = minSlider.value;
+                const maxVal = maxSlider.value;
+
+                // Asegurarse de que el valor mínimo no sea mayor que el valor máximo
+                if (parseInt(minVal) > parseInt(maxVal)) {
+                    minSlider.value = maxVal;
+                    minPrice.value = maxVal;
+                }
+
+                amount.value = "$" + minVal + " - $" + maxVal;
+                minPrice.value = minVal;
+                maxPrice.value = maxVal;
+            }
+        });
+
+
     </script>
 
 @endsection
