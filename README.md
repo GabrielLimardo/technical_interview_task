@@ -2,6 +2,9 @@
 <body>
     <h2>Welcome to my technical_interview_task repository!</h2>
     <p>Thanks for checking out my repository! If you find it useful, I'd appreciate it if you could give it a star.</p>
+     <p>I've developed a program that allows for multiple filters on a dataset, including fields like ID, name, code, and EAN. For each of these fields, users can apply various criteria such as equals, not equals, contains, or does not contain specific values. Moreover, the system supports applying multiple filters concurrently and specifies the relationship between them as either "OR" or "AND".</p>
+    <p>Additionally, users can filter by a price range, sort results from newest to oldest or vice versa. All of these functionalities are presented within an AdminLTE-based visual interface. To ensure everything works seamlessly, I've integrated automated tests to validate the program's functionality.</p>
+    <img src="https://github.com/GabrielLimardo/technical_interview_task/assets/60992367/95153e67-f87e-4b2c-bbe4-36fb95a6a3db" alt="MDN" />
     <p>Please select your preferred language:</p>
     <ul>
         <li><a href="#setup-in-english">English</a></li>
