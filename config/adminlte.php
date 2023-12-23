@@ -14,11 +14,11 @@ return [
     |
     */
 
-    'type'         => 'darkmode-widget',
+    'type'=> 'darkmode-widget',
     'topnav_right' => true, // Or "topnav => true" to place on the left.
 
 
-    'title' => 'AdminLTE 3',
+    'title' => 'technical_interview_task',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -67,8 +67,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Master </b> Filter',
+    'logo_img' => 'img/rrhh.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
