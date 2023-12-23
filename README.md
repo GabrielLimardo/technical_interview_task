@@ -28,6 +28,7 @@
         <li><strong>Email:</strong> <code>test@example.com</code></li>
         <li><strong>Password:</strong> <code>123456789</code></li>
     </ul>
+    <p>That's it! You should now be able to access the application at <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
     <hr>
     <h2 id="setup-en-espanol">Configuración de technical_interview_task en Español:</h2>
     <h3>Pasos Iniciales:</h3>
@@ -49,6 +50,7 @@
         <li><strong>Email:</strong> <code>test@example.com</code></li>
         <li><strong>Contraseña:</strong> <code>123456789</code></li>
     </ul>
+    <p>¡Eso es todo! Ahora deberías poder acceder a la aplicación en <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
     <hr>
     <h2 id="setup-in-italiano">Impostare di technical_interview_task in Italiano:</h2>
     <h3>Passaggi Iniziali:</h3>
@@ -70,7 +72,7 @@
         <li><strong>Email:</strong> <code>test@example.com</code></li>
         <li><strong>Password:</strong> <code>123456789</code></li>
     </ul>
-    
+    <p>Questo è tutto! Ora dovresti essere in grado di accedere all'applicazione su <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
 </body>
 
 </html>
