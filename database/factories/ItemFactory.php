@@ -22,12 +22,17 @@ class ItemFactory extends Factory
      */
     public function definition()
     {
+        $computerParts = [
+            'CPU', 'GPU', 'RAM', 'Motherboard', 'SSD', 'HDD', 'Power Supply', 'Cooling Fan', 'Case', 'Keyboard',
+            'Mouse', 'Monitor', 'Webcam', 'Microphone', 'Speakers', 'Ethernet Cable', 'Wi-Fi Adapter', 'Bluetooth Dongle'
+        ];
+
         return [
-            'photo' => $this->faker->imageUrl(), // Genera una URL de imagen ficticia
-            'name' => $this->faker->word,        // Genera una palabra ficticia
-            'code' => $this->faker->unique()->randomNumber(6), // Genera un código único de 6 dígitos
-            'ean' => $this->faker->unique()->ean13, // Genera un código EAN-13 único
-            'price' => $this->faker->randomFloat(2, 10, 1000), // Genera un precio aleatorio con 2 decimales
+            'photo' => $this->faker->imageUrl(),
+            'name' => $this->faker->randomElement($computerParts),
+            'code' => $this->faker->unique()->randomNumber(6),
+            'ean' => $this->faker->unique()->ean13,
+            'price' => $this->faker->randomFloat(2, 10, 1000),
         ];
     }
 }
