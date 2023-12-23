@@ -29,7 +29,7 @@
         <li><strong>Password:</strong> <code>123456789</code></li>
     </ul>
     <hr>
-    <h2 id="setup-en-espanol">Setup de technical_interview_task en Español:</h2>
+    <h2 id="setup-en-espanol">Configuración de technical_interview_task en Español:</h2>
     <h3>Pasos Iniciales:</h3>
     <ul>
         <li>Crea una nueva base de datos MySQL llamada <code>technical_interview_task</code>.</li>
@@ -50,7 +50,7 @@
         <li><strong>Contraseña:</strong> <code>123456789</code></li>
     </ul>
     <hr>
-    <h2 id="setup-in-italiano">Setup di technical_interview_task in Italiano:</h2>
+    <h2 id="setup-in-italiano">Impostare di technical_interview_task in Italiano:</h2>
     <h3>Passaggi Iniziali:</h3>
     <ul>
         <li>Crea un nuovo database MySQL chiamato <code>technical_interview_task</code>.</li>
