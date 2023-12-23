@@ -1,16 +1,15 @@
 .items {
-    display: flex; /* Esto activa el flexbox */
-}
+    display: flex;
 
 .filter {
     margin: 5px;
-    border: 1px solid #000; /* Esto añade un borde al div .filter */
-    padding: 20px; /* Esto añade algo de espacio alrededor del contenido de .filter */
-    margin-right: 20px; /* Esto añade un margen a la derecha para separar .filter de .table */
+    border: 1px solid #000;
+    padding: 20px;
+    margin-right: 20px;
 }
 
 .table {
     border: 1px solid #000;
     margin: 5px;
-    flex-grow: 1; /* Esto permite que el div .table ocupe todo el espacio disponible restante */
+    width: unset;
 }

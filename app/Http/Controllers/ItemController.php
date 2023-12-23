@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Log;
-// use Carbon\Carbon;
+use Illuminate\Http\Request;// use Carbon\Carbon;
 
 class ItemController extends Controller
 {
@@ -15,20 +13,12 @@ class ItemController extends Controller
         $connection = $request->get('operator');
         $query = Item::query();
 
-        $data = [
-            'id'=> true ,
-            'name'=> true,
-            'code'=> true,
-            'ean'=> true
-        ];
-
-        foreach ($filters as $key => $value) {
-            if (isset($data[$key])) {
-                if (isset($value)) {
-                    $this->applyFilter($query,$key,$request->get("{$key}_filter"),$value ,$connection);
+        if (isset($filters['fields'])) {
+            foreach ($filters['fields'] as $key => $value) {
+                    if (isset($value) && isset($filters['filterValues'][$key])) {
+                        $this->applyFilter($query,$value,$filters['filterTypes'][$key],$filters['filterValues'][$key],$connection);
+                    }
                 }
-            }
-
         }
 
         $orderBy = $request->input('orderBy', 'desc');
