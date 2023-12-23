@@ -4,35 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Log;
+// use Carbon\Carbon;
 
 class ItemController extends Controller
 {
     public function index(Request $request)
     {
+        $filters = $request->all();
+        $connection = $request->get('operator');
         $query = Item::query();
 
-        if ($request->has('filters')) {
-            $filters = $request->input('filters');
+        $data = [
+            'id'=> true ,
+            'name'=> true,
+            'code'=> true,
+            'ean'=> true
+        ];
 
-            foreach ($filters as $filter) {
-                $this->applyFilter($query, $filter['column'], $filter['type'], $filter['value'], $filter['operator']);
+        foreach ($filters as $key => $value) {
+            if (isset($data[$key])) {
+                if (isset($value)) {
+                    $this->applyFilter($query,$key,$request->get("{$key}_filter"),$value ,$connection);
+                }
             }
-        }
 
-        if ($request->has('id')) {
-            $this->applyFilter($query, 'id', $request->input('id_filter'), $request->input('id'),$request->input('operator'));
-        }
-
-        if ($request->has('name')) {
-            $this->applyFilter($query, 'name', $request->input('name_filter'), $request->input('name'),$request->input('operator'));
-        }
-
-        if ($request->has('code')) {
-            $this->applyFilter($query, 'code', $request->input('code_filter'), $request->input('code'),$request->input('operator'));
-        }
-
-        if ($request->has('ean')) {
-            $this->applyFilter($query, 'ean', $request->input('ean_filter'), $request->input('ean'),$request->input('operator'));
         }
 
         $orderBy = $request->input('orderBy', 'desc');
@@ -42,18 +38,18 @@ class ItemController extends Controller
             return redirect()->route('items.index');
         }
 
-       $perPage = $request->input('perPage', 10);
+       $perPage = $request->input('perPage', 20);
 
        $items = $query->paginate($perPage);
 
-        $items = $query->get();
-        // dd($query->toSql());
+      $items = $query->get();
 
-        return view('items.index', compact('items'));
+      return view('items.index', compact('items'));
     }
 
     private function applyFilter($query, $column, $filterType, $value, $logicalOperator = 'AND')
     {
+
         $method = ($logicalOperator == 'AND') ? 'where' : 'orWhere';
 
         switch ($filterType) {
@@ -71,7 +67,6 @@ class ItemController extends Controller
             break;
             case 'updated_at':
             $query->{$method . 'Date'}('updated_at', $value);
-            // Agregar declaración break aquí
             break;
             default:
             break;
