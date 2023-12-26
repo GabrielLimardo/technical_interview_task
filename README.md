@@ -25,6 +25,7 @@
         <li>Run <code>npm install</code> to install necessary Node.js packages.</li>
         <li>Run <code>npm run dev</code> to compile front-end assets.</li>
         <li>Finally, run <code>php artisan test</code> to see if all tests run correctly.</li>
+        <li>Run <code>php artisan serve</code> </li>
     </ul>
     <h3>Credentials:</h3>
     <ul>
@@ -47,6 +48,7 @@
         <li>Ejecuta <code>npm install</code> para instalar los paquetes necesarios de Node.js.</li>
         <li>Ejecuta <code>npm run dev</code> para compilar los activos de la interfaz de usuario.</li>
         <li>Finalmente, ejecuta <code>php artisan test</code> para verificar si todas las pruebas se ejecutan correctamente.</li>
+        <li>Ejecuta <code>php artisan serve</code> </li>
     </ul>
     <h3>Credenciales:</h3>
     <ul>
@@ -69,6 +71,7 @@
         <li>Esegui <code>npm install</code> per installare i pacchetti necessari di Node.js.</li>
         <li>Esegui <code>npm run dev</code> per compilare gli asset del frontend.</li>
         <li>Infine, esegui <code>php artisan test</code> per verificare se tutti i test vengono eseguiti correttamente.</li>
+        <li>Esegui <code>php artisan serve</code> </li>
     </ul>
     <h3>Credenziali:</h3>
     <ul>
